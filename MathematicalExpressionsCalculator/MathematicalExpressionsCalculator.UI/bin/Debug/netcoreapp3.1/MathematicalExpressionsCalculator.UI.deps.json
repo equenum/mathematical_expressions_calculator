@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "MathematicalExpressionsCalculator.UI/1.0.0": {
+        "dependencies": {
+          "MathematicalExpressionsCalculator.Library": "1.0.0"
+        },
         "runtime": {
           "MathematicalExpressionsCalculator.UI.dll": {}
+        }
+      },
+      "MathematicalExpressionsCalculator.Library/1.0.0": {
+        "runtime": {
+          "MathematicalExpressionsCalculator.Library.dll": {}
         }
       }
     }
   },
   "libraries": {
     "MathematicalExpressionsCalculator.UI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MathematicalExpressionsCalculator.Library/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

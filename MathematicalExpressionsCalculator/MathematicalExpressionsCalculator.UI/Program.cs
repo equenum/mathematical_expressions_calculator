@@ -7,6 +7,8 @@ namespace MathematicalExpressionsCalculator.UI
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            // TODO - Logging
+            // TODO - Autofac
         }
     }
 }
