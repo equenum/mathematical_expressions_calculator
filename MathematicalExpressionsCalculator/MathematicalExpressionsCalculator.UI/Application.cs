@@ -1,6 +1,7 @@
 ﻿using MathematicalExpressionsCalculator.Library;
 using MathematicalExpressionsCalculator.Library.Observers;
 using MathematicalExpressionsCalculator.Library.Repositories;
+using MathematicalExpressionsCalculator.Library.Utilities;
 using MathematicalExpressionsCalculator.Library.Validation;
 using Serilog;
 using System;
@@ -16,16 +17,18 @@ namespace MathematicalExpressionsCalculator.UI
         private readonly IExpressionValidator _expressionValidator;
         private readonly IConsoleRepository _consoleRepository;
         private readonly IConsoleMessenger _consoleMessenger;
+        private readonly IUserInputCatcher _userInputCatcher;
 
         public Application(IFileValidator fileValidator, IFileRepository fileRepository,
             IExpressionValidator expressionValidator, IConsoleRepository consoleRepository,
-            IConsoleMessenger consoleMessenger)
+            IConsoleMessenger consoleMessenger, IUserInputCatcher userInputCatcher)
         {
             _fileValidator = fileValidator;
             _fileRepository = fileRepository;
             _expressionValidator = expressionValidator;
             _consoleRepository = consoleRepository;
             _consoleMessenger = consoleMessenger;
+            _userInputCatcher = userInputCatcher;
         }
 
         public void Run()
@@ -33,7 +36,7 @@ namespace MathematicalExpressionsCalculator.UI
             Log.Information("Application startup.");
             _consoleMessenger.WelcomeMessage();
 
-            string userInput = Console.ReadLine().Trim();
+            string userInput = _userInputCatcher.Capture();
 
             if (string.IsNullOrEmpty(userInput) == false)
             {

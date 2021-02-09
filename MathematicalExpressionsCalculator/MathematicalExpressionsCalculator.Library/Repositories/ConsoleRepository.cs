@@ -1,4 +1,5 @@
 ﻿using MathematicalExpressionsCalculator.Library.Observers;
+using MathematicalExpressionsCalculator.Library.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -38,7 +39,8 @@ namespace MathematicalExpressionsCalculator.Library.Repositories
 
         public void AddExpression(string userInput)
         {
-            _store.Add(new ExpressionSubject(userInput));
+            IExpressionSubject expression = Factory.CreateExpressionSubject(userInput);
+            _store.Add(expression);
         }
     }
 }

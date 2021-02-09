@@ -65,7 +65,7 @@ namespace MathematicalExpressionsCalculator.Library.Validation
                 {
                     if (Expression[i + 1] == '0')
                     {
-                        //Console.WriteLine("Division by zero is not allowed!");
+                        Console.WriteLine("Division by zero is not allowed!");
 
                         return false;
                     }

@@ -1,4 +1,5 @@
 ﻿using MathematicalExpressionsCalculator.Library.ExpressionHandling;
+using MathematicalExpressionsCalculator.Library.Utilities;
 using MathematicalExpressionsCalculator.Library.Validation;
 using System;
 using System.Collections.Generic;
@@ -24,15 +25,15 @@ namespace MathematicalExpressionsCalculator.Library.Observers
         {
             InfixNotationValue = input.ToCharArray().Select(c => c.ToString()).ToArray();
 
-            this.Attach(new DivisionObserver());
-            this.Attach(new MultiplicationObserver());
-            this.Attach(new AdditionObserver());
-            this.Attach(new SubtractionObserver());
+            this.Attach(Factory.CreateDivisionObserver());
+            this.Attach(Factory.CreateMultiplicationObserver());
+            this.Attach(Factory.CreateAdditionObserver());
+            this.Attach(Factory.CreateSubtractionObserver());
         }
 
         public string Calculate()
         {
-            var expressionValidator = new ExpressionValidator();
+            IExpressionValidator expressionValidator = Factory.CreateExpressionValidator();
             expressionValidator.Expression = string.Join("", InfixNotationValue);
 
             if (expressionValidator.Validate())

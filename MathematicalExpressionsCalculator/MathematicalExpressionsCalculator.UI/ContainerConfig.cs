@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using MathematicalExpressionsCalculator.Library;
 using MathematicalExpressionsCalculator.Library.Repositories;
+using MathematicalExpressionsCalculator.Library.Utilities;
 using MathematicalExpressionsCalculator.Library.Validation;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace MathematicalExpressionsCalculator.UI
             builder.RegisterType<FileRepository>().As<IFileRepository>();
             builder.RegisterType<ExpressionValidator>().As<IExpressionValidator>();
             builder.RegisterType<ConsoleRepository>().As<IConsoleRepository>();
+            builder.RegisterType<UserInputCatcher>().As<IUserInputCatcher>();
 
             return builder.Build();
         }

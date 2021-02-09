@@ -1,4 +1,5 @@
 ﻿using MathematicalExpressionsCalculator.Library.Observers;
+using MathematicalExpressionsCalculator.Library.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -44,7 +45,8 @@ namespace MathematicalExpressionsCalculator.Library.Repositories
 
             foreach (string line in lines)
             {
-                _store.Add(new ExpressionSubject(line.Trim()));
+                IExpressionSubject expression = Factory.CreateExpressionSubject(line.Trim());
+                _store.Add(expression);
             }
 
             return _store;
