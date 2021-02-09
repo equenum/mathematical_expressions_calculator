@@ -11,9 +11,9 @@ namespace MathematicalExpressionsCalculator.UI
     {
         static void Main(string[] args)
         {
-            // TODO - Logging
-            // TODO - Console messages
+            // TODO - Factory
             var container = ContainerConfig.Configure();
+            LoggerConfig.Configure();
 
             using (var scope = container.BeginLifetimeScope())
             {

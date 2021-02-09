@@ -8,9 +8,16 @@ namespace MathematicalExpressionsCalculator.Library.Repositories
 {
     public class FileRepository : IFileRepository
     {
+        private readonly IConsoleMessenger _consoleMessenger;
+
         private string _inputFilePath;
         private string _outputFilePath;
         private List<IExpressionSubject> _store = new List<IExpressionSubject>();
+
+        public FileRepository(IConsoleMessenger consoleMessenger)
+        {
+            _consoleMessenger = consoleMessenger;
+        }
 
         public void Add()
         {
@@ -28,7 +35,7 @@ namespace MathematicalExpressionsCalculator.Library.Repositories
                 }
             }
 
-            Console.WriteLine($"Result has been written to output file ({_outputFilePath}).");
+            _consoleMessenger.FileRepoResultMessage(_outputFilePath);
         }
 
         public List<IExpressionSubject> Get()

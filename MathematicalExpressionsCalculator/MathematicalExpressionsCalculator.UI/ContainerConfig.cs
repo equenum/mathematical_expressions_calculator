@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using MathematicalExpressionsCalculator.Library;
 using MathematicalExpressionsCalculator.Library.Repositories;
 using MathematicalExpressionsCalculator.Library.Validation;
 using System;
@@ -14,6 +15,7 @@ namespace MathematicalExpressionsCalculator.UI
             var builder = new ContainerBuilder();
 
             builder.RegisterType<Application>().As<IApplication>();
+            builder.RegisterType<ConsoleMessenger>().As<IConsoleMessenger>();
 
             builder.RegisterType<FileValidator>().As<IFileValidator>();
             builder.RegisterType<FileRepository>().As<IFileRepository>();

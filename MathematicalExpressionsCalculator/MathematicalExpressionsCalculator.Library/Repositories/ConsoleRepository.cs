@@ -7,19 +7,26 @@ namespace MathematicalExpressionsCalculator.Library.Repositories
 {
     public class ConsoleRepository : IConsoleRepository
     {
+        private readonly IConsoleMessenger _consoleMessenger;
+
         private List<IExpressionSubject> _store = new List<IExpressionSubject>();
+
+        public ConsoleRepository(IConsoleMessenger consoleMessenger)
+        {
+            _consoleMessenger = consoleMessenger;
+        }
 
         public void Add()
         {
-            foreach (IExpressionSubject element in _store)
+            foreach (IExpressionSubject expression in _store)
             {
-                if (double.TryParse(element.Result, out _))
+                if (double.TryParse(expression.Result, out _))
                 {
-                    Console.WriteLine(String.Format("Result: {0} = {1:0.##}", string.Join("", element.InfixNotationValue), double.Parse(element.Result)));
+                    _consoleMessenger.ConsoleRepoDoubleResultMessage(expression.InfixNotationValue, expression.Result);
                 }
                 else
                 {
-                    Console.WriteLine($"Result: {string.Join("", element.InfixNotationValue)} = {element.Result}");
+                    _consoleMessenger.ConsoleRepoIntegerResultMessage(expression.InfixNotationValue, expression.Result);
                 }
             }
         }

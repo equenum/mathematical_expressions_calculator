@@ -1,6 +1,8 @@
-﻿using MathematicalExpressionsCalculator.Library.Observers;
+﻿using MathematicalExpressionsCalculator.Library;
+using MathematicalExpressionsCalculator.Library.Observers;
 using MathematicalExpressionsCalculator.Library.Repositories;
 using MathematicalExpressionsCalculator.Library.Validation;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,24 +15,23 @@ namespace MathematicalExpressionsCalculator.UI
         private readonly IFileRepository _fileRepository;
         private readonly IExpressionValidator _expressionValidator;
         private readonly IConsoleRepository _consoleRepository;
+        private readonly IConsoleMessenger _consoleMessenger;
 
         public Application(IFileValidator fileValidator, IFileRepository fileRepository,
-            IExpressionValidator expressionValidator, IConsoleRepository consoleRepository)
+            IExpressionValidator expressionValidator, IConsoleRepository consoleRepository,
+            IConsoleMessenger consoleMessenger)
         {
             _fileValidator = fileValidator;
             _fileRepository = fileRepository;
             _expressionValidator = expressionValidator;
             _consoleRepository = consoleRepository;
+            _consoleMessenger = consoleMessenger;
         }
 
         public void Run()
         {
-            Console.Write($"Hello, User!\n\nThis program is an arithmetic expression evaluator.\n" +
-                $"It takes simple expressions and solves them with respect to the priority of operations.\n\n" +
-                $"You have the following arithmetic operators available:\n\n\"+\" - addition\n\"-\" - subtraction\n" +
-                $"\"*\" - multiplication\n\"/\" - division\n\"()\" - parentheses\n\nYou have the following input options available:\n\n" +
-                $"- console input\n- txt-file input\n\nNOTE:\n\n- decimal separator is a point \".\"\n" +
-                $"\n\nPlease enter txt-file location path or an expression: ");
+            Log.Information("Application startup.");
+            _consoleMessenger.WelcomeMessage();
 
             string userInput = Console.ReadLine().Trim();
 
@@ -72,7 +73,8 @@ namespace MathematicalExpressionsCalculator.UI
             }
             else
             {
-                Console.WriteLine("Empty input was given! Unable to proceed.");
+                _consoleMessenger.EmptyInputMessage();
+                Log.Error("Empty input.");
             }
         }
     }
