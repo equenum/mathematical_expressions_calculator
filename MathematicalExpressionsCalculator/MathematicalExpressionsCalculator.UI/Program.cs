@@ -11,8 +11,8 @@ namespace MathematicalExpressionsCalculator.UI
     {
         static void Main(string[] args)
         {
-            // TODO - Add Log messages
             // TODO - Add Unit tests
+            // Xml-comments
             var container = ContainerConfig.Configure();
             LoggerConfig.Configure();
 

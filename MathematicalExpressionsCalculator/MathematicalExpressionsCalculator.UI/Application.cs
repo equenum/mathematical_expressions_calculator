@@ -33,7 +33,7 @@ namespace MathematicalExpressionsCalculator.UI
 
         public void Run()
         {
-            Log.Information("Application startup.");
+            Log.Information("Application was started.");
             _consoleMessenger.WelcomeMessage();
 
             string userInput = _userInputCatcher.Capture();
@@ -44,9 +44,11 @@ namespace MathematicalExpressionsCalculator.UI
 
                 if (_fileValidator.Validate())
                 {
+                    Log.Information("User input is determined as a file path.");
                     _fileRepository.SetInputFilePath(userInput);
-
+                    
                     List<IExpressionSubject> fileExpressions = _fileRepository.Get();
+                    Log.Information("Input file was loaded.");
 
                     foreach (IExpressionSubject expression in fileExpressions)
                     {
@@ -59,12 +61,15 @@ namespace MathematicalExpressionsCalculator.UI
                     }
 
                     _fileRepository.Add();
+                    Log.Information("Result was written to an output file.");
                 }
                 else
                 {
+                    Log.Information("User input was determined as an mathematical expression.");
                     _consoleRepository.AddExpression(userInput);
 
                     List<IExpressionSubject> consoleExpressions = _consoleRepository.Get();
+                    Log.Information("Input expression was loaded.");
 
                     foreach (IExpressionSubject expression in consoleExpressions)
                     {
@@ -72,6 +77,7 @@ namespace MathematicalExpressionsCalculator.UI
                     }
 
                     _consoleRepository.Add();
+                    Log.Information("Result was written to console.");
                 }
             }
             else
@@ -79,6 +85,8 @@ namespace MathematicalExpressionsCalculator.UI
                 _consoleMessenger.EmptyInputMessage();
                 Log.Error("Empty input.");
             }
+
+            Log.Information("Application was ended.");
         }
     }
 }
