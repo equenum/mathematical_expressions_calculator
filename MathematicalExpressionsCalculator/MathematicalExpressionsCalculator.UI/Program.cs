@@ -11,7 +11,6 @@ namespace MathematicalExpressionsCalculator.UI
     {
         static void Main(string[] args)
         {
-            // TODO - Add Unit tests
             var container = ContainerConfig.Configure();
             LoggerConfig.Configure();
 

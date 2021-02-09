@@ -11,7 +11,7 @@ namespace MathematicalExpressionsCalculator.Library
     {
         public void WelcomeMessage()
         {
-            Console.Write($"Hello, User!\n\nThis program is an arithmetic expression evaluator.\n" +
+            Console.Write($"Hello, User!\n\nThis program is an mathematical expression calculator.\n" +
                 $"It takes simple expressions and solves them with respect to the priority of operations.\n\n" +
                 $"You have the following arithmetic operators available:\n\n\"+\" - addition\n\"-\" - subtraction\n" +
                 $"\"*\" - multiplication\n\"/\" - division\n\"()\" - parentheses\n\nYou have the following input options available:\n\n" +
