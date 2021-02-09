@@ -4,16 +4,11 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Validation
 {
-    public class ExpressionValidator
+    public class ExpressionValidator : IExpressionValidator
     {
         private static readonly List<string> _operators = new List<string>() { "(", ")", "+", "-", "*", "/", "." };
 
-        public string Value { get; set; }
-
-        public ExpressionValidator(string value)
-        {
-            Value = value;
-        }
+        public string Expression { get; set; }
 
         public bool Validate()
         {
@@ -31,9 +26,9 @@ namespace MathematicalExpressionsCalculator.Library.Validation
         {
             int operationCounter = 0;
 
-            for (int i = 1; i < Value.Length - 1; i++)
+            for (int i = 1; i < Expression.Length - 1; i++)
             {
-                if (_operators.Contains(Char.ToString(Value[i])))
+                if (_operators.Contains(Char.ToString(Expression[i])))
                 {
                     operationCounter++;
                 }
@@ -51,9 +46,9 @@ namespace MathematicalExpressionsCalculator.Library.Validation
 
         private bool NotAllowedOperatorsCheck()
         {
-            for (int i = 0; i < Value.Length; i++)
+            for (int i = 0; i < Expression.Length; i++)
             {
-                if (Char.IsDigit(Value[i]) == false && _operators.Contains(Char.ToString(Value[i])) == false)
+                if (Char.IsDigit(Expression[i]) == false && _operators.Contains(Char.ToString(Expression[i])) == false)
                 {
                     return false;
                 }
@@ -64,11 +59,11 @@ namespace MathematicalExpressionsCalculator.Library.Validation
 
         private bool DivisionByZeroCheck()
         {
-            for (int i = 0; i < Value.Length; i++)
+            for (int i = 0; i < Expression.Length; i++)
             {
-                if (Value[i] == '/')
+                if (Expression[i] == '/')
                 {
-                    if (Value[i + 1] == '0')
+                    if (Expression[i + 1] == '0')
                     {
                         Console.WriteLine("Division by zero is not allowed!");
 

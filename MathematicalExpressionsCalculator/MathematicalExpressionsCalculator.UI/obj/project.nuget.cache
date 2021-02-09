@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "9Bhrnl47wXQufv0HBYLSI+FOGFp1zc/K28f0LJXMqN58nMvv4SIoekc51ASZEDjRsC3KB5cTV5vIp+/T/JWjyA==",
+  "dgSpecHash": "zOD8j8oY2lTc3JUcLD8iEP/oIxepHWWv6WiKhqVEriCvh3k9ShDXK1WjFwrFLw1yUiIQKaU8r7J7qKZpzquEmw==",
   "success": true,
   "projectFilePath": "D:\\githubrepos\\mathematical_expressions_calculator\\MathematicalExpressionsCalculator\\MathematicalExpressionsCalculator.UI\\MathematicalExpressionsCalculator.UI.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\George\\.nuget\\packages\\autofac\\6.1.0\\autofac.6.1.0.nupkg.sha512",
+    "C:\\Users\\George\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+  ],
   "logs": []
 }

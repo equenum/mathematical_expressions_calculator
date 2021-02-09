@@ -8,7 +8,7 @@ namespace MathematicalExpressionsCalculator.Library.ExpressionHandling
     {
         public static string ReplaceMinus(string input, List<string> operators)
         {
-            StringBuilder result = new StringBuilder(); // TODO - Create a field Result. Assing new string builder in the ctor. DI maybe?
+            StringBuilder result = new StringBuilder();
 
             int startingPoint = 0;
 
@@ -24,7 +24,7 @@ namespace MathematicalExpressionsCalculator.Library.ExpressionHandling
                         break;
                     }
 
-                    // in case an expression consists of sione
+                    // in case an expression consists of a
                     // single negative argument
                     if (i == input.Length - 1)
                     {

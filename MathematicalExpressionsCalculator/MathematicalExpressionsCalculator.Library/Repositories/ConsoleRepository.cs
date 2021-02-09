@@ -5,20 +5,13 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Repositories
 {
-    public class ConsoleRepository : IRepository<IExpressionSubject>
+    public class ConsoleRepository : IConsoleRepository
     {
-        public List<IExpressionSubject> Store { get; set; } = new List<IExpressionSubject>();
-
-        public string UserInput { get; set; }
-
-        public ConsoleRepository(string userInput)
-        {
-            UserInput = userInput;
-        }
+        private List<IExpressionSubject> _store = new List<IExpressionSubject>();
 
         public void Add()
         {
-            foreach (IExpressionSubject element in Store)
+            foreach (IExpressionSubject element in _store)
             {
                 if (double.TryParse(element.Result, out _))
                 {
@@ -33,9 +26,12 @@ namespace MathematicalExpressionsCalculator.Library.Repositories
 
         public List<IExpressionSubject> Get()
         {
-            Store.Add(new ExpressionSubject(UserInput));
+            return _store;
+        }
 
-            return Store;
+        public void AddExpression(string userInput)
+        {
+            _store.Add(new ExpressionSubject(userInput));
         }
     }
 }

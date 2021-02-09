@@ -6,25 +6,17 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Repositories
 {
-    public class FileRepository : IRepository<IExpressionSubject>
+    public class FileRepository : IFileRepository
     {
-        private readonly string _inputFilePath;
-
-        public string OutputFilePath { get; set; }
-
-        public FileRepository(string inputFilePath)
-        {
-            _inputFilePath = inputFilePath;
-            OutputFilePath = @Path.GetDirectoryName(_inputFilePath) + @"\output.txt";
-        }
-
-        public List<IExpressionSubject> Store { get; set; } = new List<IExpressionSubject>();
+        private string _inputFilePath;
+        private string _outputFilePath;
+        private List<IExpressionSubject> _store = new List<IExpressionSubject>();
 
         public void Add()
         {
-            using var output = new StreamWriter(OutputFilePath);
+            using var output = new StreamWriter(_outputFilePath);
 
-            foreach (IExpressionSubject element in Store)
+            foreach (IExpressionSubject element in _store)
             {
                 if (double.TryParse(element.Result, out _))
                 {
@@ -36,7 +28,7 @@ namespace MathematicalExpressionsCalculator.Library.Repositories
                 }
             }
 
-            Console.WriteLine($"Result has been written to output file ({OutputFilePath}).");
+            Console.WriteLine($"Result has been written to output file ({_outputFilePath}).");
         }
 
         public List<IExpressionSubject> Get()
@@ -45,10 +37,16 @@ namespace MathematicalExpressionsCalculator.Library.Repositories
 
             foreach (string line in lines)
             {
-                Store.Add(new ExpressionSubject(line.Trim()));
+                _store.Add(new ExpressionSubject(line.Trim()));
             }
 
-            return Store;
+            return _store;
+        }
+
+        public void SetInputFilePath(string inputFilePath)
+        {
+            _inputFilePath = inputFilePath;
+            _outputFilePath = @Path.GetDirectoryName(_inputFilePath) + @"\output.txt";
         }
     }
 }

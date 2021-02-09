@@ -11,19 +11,13 @@ namespace MathematicalExpressionsCalculator.Library.Observers
     {
         private readonly List<string> _operators = new List<string>() { "(", ")", "+", "-", "*", "/" };
         private readonly List<IObserver> _observers = new List<IObserver>();
-
+       
         public string[] InfixNotationValue { get; }
-
         public string[] PostfixNotationValue { get; private set; }
-
         public Stack<string> Stack { get; set; } = new Stack<string>();
-
         public double A { get; set; } = 0;
-
         public double B { get; set; } = 0;
-
         public string Result { get; private set; } = "Error in expression!";
-
         public ExpressionSubjectState State { get; private set; } = ExpressionSubjectState.Default;
 
         public ExpressionSubject(string input)
@@ -38,7 +32,10 @@ namespace MathematicalExpressionsCalculator.Library.Observers
 
         public string Calculate()
         {
-            if (new ExpressionValidator(string.Join("", InfixNotationValue)).Validate()) // TODO - Dependency injection
+            var expressionValidator = new ExpressionValidator();
+            expressionValidator.Expression = string.Join("", InfixNotationValue);
+
+            if (expressionValidator.Validate())
             {
                 PostfixNotationValue = NotationConverter.ConvertToPostfix(string.Join("", InfixNotationValue), _operators);
 
