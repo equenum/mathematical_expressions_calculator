@@ -4,6 +4,9 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library
 {
+    /// <summary>
+    /// Represents a console messenger.
+    /// </summary>
     public class ConsoleMessenger : IConsoleMessenger
     {
         public void WelcomeMessage()

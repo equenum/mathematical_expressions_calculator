@@ -8,6 +8,9 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Observers
 {
+    /// <summary>
+    /// Represents a single expression subject.
+    /// </summary>
     public class ExpressionSubject : IExpressionSubject
     {
         private readonly List<string> _operators = new List<string>() { "(", ")", "+", "-", "*", "/" };

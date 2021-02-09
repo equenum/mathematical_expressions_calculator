@@ -22,7 +22,7 @@ namespace MathematicalExpressionsCalculator.UI
             builder.RegisterType<FileRepository>().As<IFileRepository>();
             builder.RegisterType<ExpressionValidator>().As<IExpressionValidator>();
             builder.RegisterType<ConsoleRepository>().As<IConsoleRepository>();
-            builder.RegisterType<UserInputCatcher>().As<IUserInputCatcher>();
+            builder.RegisterType<ConsoleInputCatcher>().As<IInputCatcher>();
 
             return builder.Build();
         }

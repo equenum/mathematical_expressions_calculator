@@ -4,7 +4,10 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Utilities
 {
-    public class UserInputCatcher : IUserInputCatcher
+    /// <summary>
+    /// Represents a console user input catcher.
+    /// </summary>
+    public class ConsoleInputCatcher : IInputCatcher
     {
         public string Capture()
         {

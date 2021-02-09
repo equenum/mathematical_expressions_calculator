@@ -6,6 +6,9 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Repositories
 {
+    /// <summary>
+    /// Represents a console repository.
+    /// </summary>
     public class ConsoleRepository : IConsoleRepository
     {
         private readonly IConsoleMessenger _consoleMessenger;
@@ -37,7 +40,7 @@ namespace MathematicalExpressionsCalculator.Library.Repositories
             return _store;
         }
 
-        public void AddExpression(string userInput)
+        public void AddExpressionToStore(string userInput)
         {
             IExpressionSubject expression = Factory.CreateExpressionSubject(userInput);
             _store.Add(expression);

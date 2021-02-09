@@ -4,6 +4,9 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Observers
 {
+    /// <summary>
+    /// Represents an division observer.
+    /// </summary>
     public class DivisionObserver : IObserver
     {
         public void Update(IExpressionSubject subject)

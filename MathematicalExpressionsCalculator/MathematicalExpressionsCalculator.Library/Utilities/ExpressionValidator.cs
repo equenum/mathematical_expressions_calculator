@@ -4,6 +4,9 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Validation
 {
+    /// <summary>
+    /// Represents an expression validator.
+    /// </summary>
     public class ExpressionValidator : IExpressionValidator
     {
         private static readonly List<string> _operators = new List<string>() { "(", ")", "+", "-", "*", "/", "." };

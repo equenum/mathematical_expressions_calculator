@@ -17,11 +17,11 @@ namespace MathematicalExpressionsCalculator.UI
         private readonly IExpressionValidator _expressionValidator;
         private readonly IConsoleRepository _consoleRepository;
         private readonly IConsoleMessenger _consoleMessenger;
-        private readonly IUserInputCatcher _userInputCatcher;
+        private readonly IInputCatcher _userInputCatcher;
 
         public Application(IFileValidator fileValidator, IFileRepository fileRepository,
             IExpressionValidator expressionValidator, IConsoleRepository consoleRepository,
-            IConsoleMessenger consoleMessenger, IUserInputCatcher userInputCatcher)
+            IConsoleMessenger consoleMessenger, IInputCatcher userInputCatcher)
         {
             _fileValidator = fileValidator;
             _fileRepository = fileRepository;
@@ -66,7 +66,7 @@ namespace MathematicalExpressionsCalculator.UI
                 else
                 {
                     Log.Information("User input was determined as an mathematical expression.");
-                    _consoleRepository.AddExpression(userInput);
+                    _consoleRepository.AddExpressionToStore(userInput);
 
                     List<IExpressionSubject> consoleExpressions = _consoleRepository.Get();
                     Log.Information("Input expression was loaded.");

@@ -7,6 +7,9 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Repositories
 {
+    /// <summary>
+    /// Represent a file repository.
+    /// </summary>
     public class FileRepository : IFileRepository
     {
         private readonly IConsoleMessenger _consoleMessenger;

@@ -3,3 +3,8 @@
 2021-02-09 22:07:13.866 +03:00 [INF] Input expression was loaded.
 2021-02-09 22:07:13.873 +03:00 [INF] Result was written to console.
 2021-02-09 22:07:13.875 +03:00 [INF] Application was ended.
+2021-02-09 23:31:08.679 +03:00 [INF] Application was started.
+2021-02-09 23:31:11.207 +03:00 [INF] User input was determined as an mathematical expression.
+2021-02-09 23:31:11.216 +03:00 [INF] Input expression was loaded.
+2021-02-09 23:31:11.233 +03:00 [INF] Result was written to console.
+2021-02-09 23:31:11.234 +03:00 [INF] Application was ended.

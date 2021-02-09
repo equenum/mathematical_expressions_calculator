@@ -4,6 +4,9 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Observers
 {
+    /// <summary>
+    /// Represents an subtraction observer.
+    /// </summary>
     public class SubtractionObserver : IObserver
     {
         public void Update(IExpressionSubject subject)

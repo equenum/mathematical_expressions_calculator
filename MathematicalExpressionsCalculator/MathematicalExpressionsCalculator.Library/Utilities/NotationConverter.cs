@@ -4,8 +4,17 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.ExpressionHandling
 {
+    /// <summary>
+    /// Represents an expression notation converter.
+    /// </summary>
     public class NotationConverter
     {
+        /// <summary>
+        /// Converts expression notation from infix to postfix.
+        /// </summary>
+        /// <param name="expression">Expression.</param>
+        /// <param name="operators">A list of supported mathematic operators.</param>
+        /// <returns>A postfix notation expression.</returns>
         public static string[] ConvertToPostfix(string expression, List<string> operators)
         {
             List<string> outputSeparated = new List<string>();

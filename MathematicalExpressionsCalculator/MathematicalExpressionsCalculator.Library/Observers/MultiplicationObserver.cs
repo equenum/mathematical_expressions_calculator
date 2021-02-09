@@ -4,6 +4,9 @@ using System.Text;
 
 namespace MathematicalExpressionsCalculator.Library.Observers
 {
+    /// <summary>
+    /// Represents an multiplication observer.
+    /// </summary>
     public class MultiplicationObserver : IObserver
     {
         public void Update(IExpressionSubject subject)
