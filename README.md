@@ -1,5 +1,5 @@
 # mathematical_expressions_calculator
-A simple mathematical expression calculator.It takes simple expressions and solves them with respect to the priority of operations.
+A simple mathematical expression calculator. It takes simple expressions and solves them with respect to the priority of operations.
 
 This application has the following architecture:
 
