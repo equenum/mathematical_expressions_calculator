@@ -5,7 +5,7 @@ This application has the following architecture:
 
 - Presentation layer: Console Application (C#, .NET Core);
 - Business layer: Class Library (C#, .NET Core);
-- Data layer: Txt-file.
+- Data layer: txt-file.
 
 
 There are some additional project details (architecture, technologies/patterns used, etc.):
